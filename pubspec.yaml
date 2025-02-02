@@ -3,7 +3,7 @@ description: natura flutter app
 
 publish_to: 'none'
 
-version: 1.4.20+84
+version: 1.4.21+85
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
