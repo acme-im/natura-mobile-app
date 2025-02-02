@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "975977260210",
+    "project_id": "natura-acme-im",
+    "storage_bucket": "natura-acme-im.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975977260210:android:89984878e4b1551e0c55ab",
+        "android_client_info": {
+          "package_name": "im.acme.natura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975977260210-s44vf12p3qtdurfq5rldfjqkeeb08lag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "im.acme.natura",
+            "certificate_hash": "**CERT_HASH**"
+          }
+        },
+        {
+          "client_id": "975977260210-1c52b18gfb05g9t8iegs0vd0bc0av0tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "**CURRENT_KEY**"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975977260210-1c52b18gfb05g9t8iegs0vd0bc0av0tu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "975977260210-0n7du2j7amnipisn5fqhum3rsso4d3b3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "im.acme.natura"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8541797843079117~4562662359"
+    }
+  ],
+  "configuration_version": "1"
+}
