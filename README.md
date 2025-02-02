@@ -48,6 +48,15 @@
 
 ## Build Release app:
 
+Important: update API Keys in 
+
+    android/app/google-services.json
+    ios/Runner/GoogleService-Info.plist
+
+from Google Cloud Console: https://console.cloud.google.com/apis/credentials?authuser=2&project=natura-acme-im
+
+Firebase console (original source fot these files) contains compromised and outdated versions of these keys.
+
 # Android
     
     flutter build appbundle --dart-define=GOOGLE_API_KEY=xxxPROD_KEYxxx
