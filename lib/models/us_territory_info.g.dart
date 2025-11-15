@@ -32,18 +32,18 @@ UsTerritoryInfo _$UsTerritoryInfoFromJson(Map<String, dynamic> json) =>
           : Person.fromJson(json['representative'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$UsTerritoryInfoToJson(UsTerritoryInfo instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'abbr': instance.abbr,
-      'capital': instance.capital,
-      'governor': instance.governor?.toJson(),
-      'senators': instance.senators?.map((e) => e.toJson()).toList(),
-      'flag_url': instance.flagUrl,
-      'skyline_background_url': instance.skylineBackgroundUrl,
-      'nickname': instance.nickname,
-      'answers': instance.answers,
-      'representatives':
-          instance.representatives.map((e) => e.toJson()).toList(),
-      'representative': instance.representative?.toJson(),
-    };
+Map<String, dynamic> _$UsTerritoryInfoToJson(
+  UsTerritoryInfo instance,
+) => <String, dynamic>{
+  'name': instance.name,
+  'abbr': instance.abbr,
+  'capital': instance.capital,
+  'governor': instance.governor?.toJson(),
+  'senators': instance.senators?.map((e) => e.toJson()).toList(),
+  'flag_url': instance.flagUrl,
+  'skyline_background_url': instance.skylineBackgroundUrl,
+  'nickname': instance.nickname,
+  'answers': instance.answers,
+  'representatives': instance.representatives.map((e) => e.toJson()).toList(),
+  'representative': instance.representative?.toJson(),
+};

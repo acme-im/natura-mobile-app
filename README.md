@@ -59,7 +59,7 @@ Firebase console (original source fot these files) contains compromised and outd
 
 # Android
     
-    flutter build appbundle --dart-define=GOOGLE_API_KEY=xxxPROD_KEYxxx
+    flutter build appbundle --dart-define=GOOGLE_API_KEY=xxxPROD_KEYxxx --dart-define=OPEN_STATES_API_KEY=xxxPROD_KEYxxx
 
 # iOS
     flutter install ios
@@ -67,6 +67,6 @@ Firebase console (original source fot these files) contains compromised and outd
     pod update
     cd ..
     flutter clean
-    flutter build ipa --dart-define=GOOGLE_API_KEY=xxxPROD_KEYxxx
+    flutter build ipa --dart-define=GOOGLE_API_KEY=xxxPROD_KEYxxx --dart-define=OPEN_STATES_API_KEY=xxxPROD_KEYxxx
     
     Open build/ios/archive/Runner.xcarchive in XCode and publish

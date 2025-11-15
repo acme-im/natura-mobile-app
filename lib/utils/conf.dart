@@ -10,12 +10,18 @@ class EnvConf {
   static const kGoogleApiKey = const String.fromEnvironment('GOOGLE_API_KEY'); // ignore: unnecessary_const
   static const kShowAds = const String.fromEnvironment('SHOW_ADS'); // ignore: unnecessary_const
   static const kShowIntro = const String.fromEnvironment('SHOW_INTRO'); // ignore: unnecessary_const
+
+  static const kOpenStatesApiKey = const String.fromEnvironment('OPEN_STATES_API_KEY'); // ignore: unnecessary_const
+
 }
 
 String googleApiKey() {
   return EnvConf.kGoogleApiKey;
 }
 
+String openStatesApiKey() {
+  return EnvConf.kOpenStatesApiKey;
+}
 String appLandingUrl() {
   // return kReleaseMode ? 'https://natura.acme.im' : 'https://dev.natura.acme.im';
   return 'https://natura.acme.im';

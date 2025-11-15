@@ -1,4 +1,4 @@
-import 'package:google_maps_webservice/places.dart';
+import 'package:google_maps_apis/places.dart';
 import 'package:natura/models/location_address.dart';
 import 'package:natura/utils/conf.dart';
 
@@ -31,8 +31,11 @@ class PlaceApiProvider {
       components: kUsTerritories.map<Component>((e) => Component(Component.country, e)).toList(),
       sessionToken: sessionToken,
     );
-    if (response.isOkay) {
-      return response.predictions.map<Suggestion>((p) => Suggestion(p.placeId!, p.description!)).toList();
+    if (response.isOk) {
+      return response.predictions
+          ?.map<Suggestion>((p) => Suggestion(p.placeId!, p.description!))
+          .toList()
+          ?? [];
     } else if (response.hasNoResults) {
       return [];
     } else {
@@ -52,10 +55,10 @@ class PlaceApiProvider {
       sessionToken: sessionToken,
     );
 
-    if (response.isOkay) {
-      final components = response.result.addressComponents;
-      final place = LocationAddress(formatted: response.result.formattedAddress);
-      for (var c in components) {
+    if (response.isOk) {
+      final components = response.result?.addressComponents;
+      final place = LocationAddress(formatted: response.result?.formattedAddress);
+      for (var c in components ?? []) {
         final List type = c.types;
         if (type.contains('country')) {
           place.countryAbbr = c.shortName;

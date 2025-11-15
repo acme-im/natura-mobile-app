@@ -8,13 +8,13 @@ part of 'civics_test_question.dart';
 
 CivicsTestQuestion _$CivicsTestQuestionFromJson(Map<String, dynamic> json) =>
     CivicsTestQuestion(
-      json['id'] as int,
+      (json['id'] as num).toInt(),
       json['text'] as String,
       $enumDecode(_$QuestionTypeEnumMap, json['type']),
       $enumDecode(_$QuestionCategoryEnumMap, json['category']),
       json['sub_category'] as String,
       json['is6520'] as bool,
-      json['min_answers'] as int,
+      (json['min_answers'] as num).toInt(),
       (json['answers'] as List<dynamic>).map((e) => e as String).toList(),
       json['text_tts'] as String?,
     );
