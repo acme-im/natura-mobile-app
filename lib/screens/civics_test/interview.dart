@@ -25,7 +25,7 @@ class CivicsTestInterviewScreen extends StatefulWidget {
   const CivicsTestInterviewScreen({super.key});
 
   @override
-  _CivicsTestInterviewScreenState createState() => _CivicsTestInterviewScreenState();
+  State<CivicsTestInterviewScreen> createState() => _CivicsTestInterviewScreenState();
 }
 
 class _CivicsTestInterviewScreenState extends State<CivicsTestInterviewScreen> {
@@ -161,6 +161,7 @@ class _CivicsTestInterviewScreenState extends State<CivicsTestInterviewScreen> {
               await logEvent(name: 'civics_test_complete_fail');
             }
             fin = true;
+            if (!mounted) return;
             await Navigator.pushNamed(context, CivicsTestResultsScreen.routePath, arguments: _responses).then((_) {
               _startInterviewLoop();
             });

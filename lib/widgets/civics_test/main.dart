@@ -9,7 +9,7 @@ class CivicsTestMainWidget extends StatefulWidget {
       : _answeringState = answeringState;
 
   @override
-  _CivicsTestMainWidgetState createState() => _CivicsTestMainWidgetState();
+  State<CivicsTestMainWidget> createState() => _CivicsTestMainWidgetState();
 }
 
 class _CivicsTestMainWidgetState extends State<CivicsTestMainWidget> {

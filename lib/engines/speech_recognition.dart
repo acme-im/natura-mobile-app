@@ -65,11 +65,14 @@ class SpeechRecognition {
         onResult: _resultListener,
         pauseFor: Duration(seconds: listenDuration - (Platform.isAndroid ? 2 : 4)),
         listenFor: Duration(seconds: listenDuration),
-        partialResults: false,
         localeId: defaultLocale,
         onSoundLevelChange: _soundLevelListener,
-        cancelOnError: true,
-        listenMode: ListenMode.confirmation);
+        listenOptions: SpeechListenOptions(
+          partialResults: false,
+          cancelOnError: true,
+          listenMode: ListenMode.confirmation,
+      ),
+    );
     return _completer.future; // Send future object back to the client so it can 'await'
   }
 

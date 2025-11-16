@@ -21,7 +21,7 @@ class CivicsTestAnsweringWidget extends StatefulWidget {
       : _answeringState = answeringState;
 
   @override
-  _CivicsTestAnsweringWidgetState createState() => _CivicsTestAnsweringWidgetState();
+  State<CivicsTestAnsweringWidget> createState() => _CivicsTestAnsweringWidgetState();
 }
 
 Widget _countDownTimerWidget(final int timeout) {
@@ -91,7 +91,7 @@ class _CivicsTestAnsweringWidgetState extends State<CivicsTestAnsweringWidget> {
               BoxShadow(
                   blurRadius: .32,
                   spreadRadius: (widget._answeringState.soundLevel) * 1.5,
-                  color: Colors.blue.withOpacity(.05))
+                  color: Colors.blue.withAlpha((255 * .05).round()))
             ],
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(50)),

@@ -2,8 +2,8 @@ plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
-    id "com.google.gms.google-services" version "4.4.2"
-    id "com.google.firebase.crashlytics" version "3.0.2"
+    id "com.google.gms.google-services" version "4.4.4"
+    id "com.google.firebase.crashlytics" version "3.0.6"
 }
 
 def localProperties = new Properties()
@@ -72,8 +72,8 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 
     // https://developer.android.com/jetpack/androidx/releases/test/#1.2.0
-    androidTestImplementation 'androidx.test:runner:1.5.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.7.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 }
 
 /* uncomment for debugging a release build

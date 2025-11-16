@@ -52,10 +52,11 @@ Important: update API Keys in
 
     android/app/google-services.json
     ios/Runner/GoogleService-Info.plist
+    .idea/workspace.xml
 
 from Google Cloud Console: https://console.cloud.google.com/apis/credentials?authuser=2&project=natura-acme-im
 
-Firebase console (original source fot these files) contains compromised and outdated versions of these keys.
+Firebase console (original source for these files) contains compromised and outdated versions of these keys.
 
 # Android
     

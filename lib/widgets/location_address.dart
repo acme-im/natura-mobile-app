@@ -9,7 +9,7 @@ class LocationAddressWidget extends StatefulWidget {
       : _locationAddress = locationAddress;
 
   @override
-  _LocationAddressWidgetState createState() => _LocationAddressWidgetState();
+  State<LocationAddressWidget> createState() => _LocationAddressWidgetState();
 }
 
 class _LocationAddressWidgetState extends State<LocationAddressWidget> {

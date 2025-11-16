@@ -3,7 +3,7 @@ description: natura flutter app
 
 publish_to: 'none'
 
-version: 1.4.23+87
+version: 1.4.24+88
 
 environment:
   sdk: ">=3.8.0 <4.0.0"
@@ -51,19 +51,16 @@ dependencies:
   collection: ^1.19.1
 dev_dependencies:
   build_runner: ^2.10.3
-  flutter_launcher_icons: # using custom fork due to a bug: https://github.com/fluttercommunity/flutter_launcher_icons/pull/181
-    git:
-      url: https://github.com/SimonIT/flutter_launcher_icons
-      ref: scaling
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^6.0.0
-  flutter_native_splash: ^2.2.16
+  flutter_native_splash: ^2.4.7
   flutter_test:
     sdk: flutter
   integration_test:
     sdk: flutter
   json_serializable: ^6.11.1
 
-flutter_icons:
+flutter_launcher_icons:
   image_path: 'assets/icons/icon.png'
   adaptive_icon_background: '#FFFFFFFF'
   adaptive_icon_foreground: 'assets/icons/icon-adaptive.png'

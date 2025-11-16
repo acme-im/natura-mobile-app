@@ -81,6 +81,7 @@ class CivicsTestResultsScreenState extends State<CivicsTestResultsScreen> {
           child: OutlinedButton(
             onPressed: () async {
               await logEvent(name: 'civics_test_start_over');
+              if (!mounted) return;
               Navigator.pop(context);
             },
             child: Text('Start Over'),
@@ -160,44 +161,40 @@ class CivicsTestResultsScreenState extends State<CivicsTestResultsScreen> {
                       ),
                     ),
                   ]),
-                  Container(
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
-                          child: Text(
-                            'A:',
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                              fontSize: 24.0,
-                            ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(16.0, 8.0, 16.0, 8.0),
+                        child: Text(
+                          'A:',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontSize: 24.0,
                           ),
                         ),
-                        Expanded(
-                          flex: 11,
-                          child: _answerWidget(item.headerValue[1], kColorBorderAnswerWrong),
-                        )
-                      ],
-                    ),
+                      ),
+                      Expanded(
+                        flex: 11,
+                        child: _answerWidget(item.headerValue[1], kColorBorderAnswerWrong),
+                      )
+                    ],
                   ),
                 ]);
           },
-          body: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8.0),
-                      child: Text('Valid answers:'),
-                    ),
-                    ...item.expandedValue.map((e) => _answerWidget(e, kColorBorderAnswerValid))
-                  ],
-                ),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 8.0),
+                    child: Text('Valid answers:'),
+                  ),
+                  ...item.expandedValue.map((e) => _answerWidget(e, kColorBorderAnswerValid))
+                ],
               ),
             ),
           ),

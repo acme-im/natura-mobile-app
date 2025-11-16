@@ -46,7 +46,7 @@ class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
   @override
-  _SettingsScreenState createState() => _SettingsScreenState();
+  State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
@@ -255,7 +255,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             child: Text('Privacy Policy'),
                           ),
                           // Text('|'),
-                          Text('   V.${_packageInfo.version}+${_packageInfo.buildNumber}   '),
+                          Expanded(
+                            child: Text(
+                              'V.${_packageInfo.version}+${_packageInfo.buildNumber}',
+                              textAlign: TextAlign.end,
+                            ),
+                          ),
                         ]),
                       ],
                     ),

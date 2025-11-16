@@ -139,10 +139,7 @@ bool isSimilar(final String strEtalon, final String strAny, {final QuestionType 
 
     case QuestionType.number:
       return isSimilarNumber(strEtalon, strAny);
-
-    default:
-      throw 'Unknown string type: $type';
-  }
+    }
 }
 
 bool findCoincidences(final String haystack, final List<String> needles, final int cnt) {

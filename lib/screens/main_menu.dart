@@ -14,7 +14,7 @@ class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({super.key});
 
   @override
-  _MainMenuScreenState createState() => _MainMenuScreenState();
+  State<MainMenuScreen> createState() => _MainMenuScreenState();
 }
 
 class _MainMenuScreenState extends State<MainMenuScreen> {
@@ -28,62 +28,63 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
   }
 
   Widget _menuButtons() {
-    return Container(
-      child: Column(
-        children: [
-          IconButton(
-            icon: Icon(
-              Icons.play_arrow,
+    return Column(
+      children: [
+        IconButton(
+          icon: Icon(
+            Icons.play_arrow,
+          ),
+          iconSize: 96,
+          color: Colors.blue,
+          splashColor: Colors.lightBlueAccent,
+          onPressed: () {
+            Navigator.pushNamed(context, CivicsTestInterviewScreen.routePath, arguments: MainMenuScreen.routePath);
+          },
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.list_outlined,
+              ),
+              iconSize: 48,
+              color: Colors.blue,
+              splashColor: Colors.lightBlueAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, CivicsTestQnAScreen.routePath, arguments: MainMenuScreen.routePath);
+              },
             ),
-            iconSize: 96,
-            color: Colors.blue,
-            splashColor: Colors.lightBlueAccent,
-            onPressed: () {
-              Navigator.pushNamed(context, CivicsTestInterviewScreen.routePath, arguments: MainMenuScreen.routePath);
-            },
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.list_outlined,
-                ),
-                iconSize: 48,
-                color: Colors.blue,
-                splashColor: Colors.lightBlueAccent,
-                onPressed: () {
-                  Navigator.pushNamed(context, CivicsTestQnAScreen.routePath, arguments: MainMenuScreen.routePath);
-                },
+            IconButton(
+              icon: Icon(
+                Icons.settings,
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.settings,
-                ),
-                iconSize: 48,
-                color: Colors.blue,
-                splashColor: Colors.lightBlueAccent,
-                onPressed: () {
-                  Navigator.pushNamed(context, SettingsScreen.routePath, arguments: MainMenuScreen.routePath);
-                },
+              iconSize: 48,
+              color: Colors.blue,
+              splashColor: Colors.lightBlueAccent,
+              onPressed: () {
+                Navigator.pushNamed(context, SettingsScreen.routePath, arguments: MainMenuScreen.routePath);
+              },
+            ),
+            IconButton(
+              icon: Icon(
+                Icons.share,
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.share,
+              iconSize: 48,
+              color: Colors.blue,
+              splashColor: Colors.lightBlueAccent,
+              onPressed: () {
+                SharePlus.instance.share(
+                ShareParams(
+                  text: 'NaturaTest App - Get ready for your US Civics Interview! ${appLandingUrl()}?utm_source=app&utm_medium=button&utm_campaign=main_screen',
+                  subject: 'Check NaturaTest App',
                 ),
-                iconSize: 48,
-                color: Colors.blue,
-                splashColor: Colors.lightBlueAccent,
-                onPressed: () {
-                  Share.share(
-                      'NaturaTest App - Get ready for your US Civics Interview! ${appLandingUrl()}?utm_source=app&utm_medium=button&utm_campaign=main_screen',
-                      subject: 'Check NaturaTest App');
-                },
-              ),
-            ],
-          ),
-        ],
-      ),
+                );
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -132,21 +133,19 @@ class _MainMenuScreenState extends State<MainMenuScreen> {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
-                    child: Column(
-                      children: [
-                        mainMenuTitle,
-                        FractionallySizedBox(
-                          widthFactor: 0.66,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 16.0),
-                            child: mainMenuText,
-                          ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+                  child: Column(
+                    children: [
+                      mainMenuTitle,
+                      FractionallySizedBox(
+                        widthFactor: 0.66,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 16.0),
+                          child: mainMenuText,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 _menuButtons(),

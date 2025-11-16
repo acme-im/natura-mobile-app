@@ -76,20 +76,18 @@ class AddressSearch extends SearchDelegate<Suggestion?> {
           } else {
             if (snapshot.hasData) {
               var data = snapshot.data!;
-              return Container(
-                child: ListView.builder(
-                  itemBuilder: (context, index) => ListTile(
-                    title: Text((data[index]).description),
-                    onTap: () async {
-                      await logEvent(name: 'search_address_found');
-                      close(context, data[index]);
-                    },
-                  ),
-                  itemCount: data.length,
+              return ListView.builder(
+                itemBuilder: (context, index) => ListTile(
+                  title: Text((data[index]).description),
+                  onTap: () async {
+                    close(context, data[index]);
+                    await logEvent(name: 'search_address_found');
+                  },
                 ),
+                itemCount: data.length,
               );
             } else {
-              return Container(child: Text('Searching for address...'));
+              return Text('Searching for address...');
             }
           }
         });

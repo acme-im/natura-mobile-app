@@ -13,7 +13,7 @@ class SpeechSampleApp extends StatefulWidget {
   const SpeechSampleApp({super.key});
 
   @override
-  _SpeechSampleAppState createState() => _SpeechSampleAppState();
+  State<SpeechSampleApp> createState() => _SpeechSampleAppState();
 }
 
 /// An example that demonstrates the basic functionality of the
@@ -73,14 +73,12 @@ class _SpeechSampleAppState extends State<SpeechSampleApp> {
         ),
         body: Column(children: [
           HeaderWidget(),
-          Container(
-            child: Column(
-              children: <Widget>[
-                InitSpeechWidget(_hasSpeech, initSpeechState),
-                SpeechControlWidget(_hasSpeech, speech.isListening, startListening, stopListening, cancelListening),
-                SessionOptionsWidget(_currentLocaleId, _switchLang, _localeNames, _logEvents, _switchLogging),
-              ],
-            ),
+          Column(
+            children: <Widget>[
+              InitSpeechWidget(_hasSpeech, initSpeechState),
+              SpeechControlWidget(_hasSpeech, speech.isListening, startListening, stopListening, cancelListening),
+              SessionOptionsWidget(_currentLocaleId, _switchLang, _localeNames, _logEvents, _switchLogging),
+            ],
           ),
           Expanded(
             flex: 4,
@@ -107,14 +105,17 @@ class _SpeechSampleAppState extends State<SpeechSampleApp> {
     // Similarly `pauseFor` is a maximum not a minimum and may be ignored
     // on some devices.
     speech.listen(
-        onResult: resultListener,
-        listenFor: Duration(seconds: 30),
-        pauseFor: Duration(seconds: 5),
-        partialResults: true,
-        localeId: _currentLocaleId,
-        onSoundLevelChange: soundLevelListener,
+      onResult: resultListener,
+      listenFor: Duration(seconds: 30),
+      pauseFor: Duration(seconds: 5),
+      localeId: _currentLocaleId,
+      onSoundLevelChange: soundLevelListener,
+      listenOptions: SpeechListenOptions(
+        partialResults: false,
         cancelOnError: true,
-        listenMode: ListenMode.confirmation);
+        listenMode: ListenMode.confirmation,
+      ),
+    );
     setState(() {});
   }
 
@@ -215,13 +216,10 @@ class RecognitionResultsWidget extends StatelessWidget {
         Expanded(
           child: Stack(
             children: <Widget>[
-              Container(
-                //color: Theme.of(context).selectedRowColor,
-                child: Center(
-                  child: Text(
-                    lastWords,
-                    textAlign: TextAlign.center,
-                  ),
+              Center(
+                child: Text(
+                  lastWords,
+                  textAlign: TextAlign.center,
                 ),
               ),
               Positioned.fill(
@@ -234,7 +232,7 @@ class RecognitionResultsWidget extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       boxShadow: [
-                        BoxShadow(blurRadius: .26, spreadRadius: level * 1.5, color: Colors.black.withOpacity(.05))
+                        BoxShadow(blurRadius: .26, spreadRadius: level * 1.5, color: Colors.black.withAlpha((255 * .05).round()))
                       ],
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -246,7 +244,7 @@ class RecognitionResultsWidget extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
+            ], 
           ),
         ),
       ],

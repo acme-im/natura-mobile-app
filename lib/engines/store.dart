@@ -27,8 +27,9 @@ class Store {
   // String? _queryProductError;
   PurchaseListener? _purchaseListener;
 
-  void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) {
-    purchaseDetailsList.forEach((PurchaseDetails purchaseDetails) async {
+  Future<void> _listenToPurchaseUpdated(
+      List<PurchaseDetails> purchaseDetailsList) async {
+    for (final purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.pending) {
         // TODO: showPendingUI();
       } else {
@@ -47,7 +48,7 @@ class Store {
           await _inAppPurchase.completePurchase(purchaseDetails);
         }
       }
-    });
+    }
   }
 
   Future<void> init(List<String> productIds, PurchaseListener? onDone) async {
@@ -73,7 +74,8 @@ class Store {
       return;
     }
 
-    var productDetailResponse = await _inAppPurchase.queryProductDetails(productIds.toSet());
+    var productDetailResponse =
+        await _inAppPurchase.queryProductDetails(productIds.toSet());
     if (productDetailResponse.error != null) {
       // _queryProductError = productDetailResponse.error!.message;
       // _isAvailable = isAvailable;
@@ -108,7 +110,8 @@ class Store {
   }
 
   Future<bool> buyNonConsumable(String productId) async {
-    var productDetails = _products.firstWhereOrNull((ProductDetails p) => p.id == productId);
+    var productDetails =
+        _products.firstWhereOrNull((ProductDetails p) => p.id == productId);
     if (productDetails != null) {
       final purchaseParam = PurchaseParam(productDetails: productDetails);
       return _inAppPurchase.buyNonConsumable(purchaseParam: purchaseParam);

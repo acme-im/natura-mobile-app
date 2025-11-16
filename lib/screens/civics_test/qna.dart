@@ -184,15 +184,13 @@ class CivicsTestQnAScreenState extends State<CivicsTestQnAScreen> {
               ]),
             ]);
           },
-          body: Container(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [...item.expandedValue.map((e) => _answerWidget(e, 0xffbbdefb))],
-                ),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [...item.expandedValue.map((e) => _answerWidget(e, 0xffbbdefb))],
               ),
             ),
           ),

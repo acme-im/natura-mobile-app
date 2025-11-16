@@ -49,8 +49,8 @@ class BannerAdState extends State<BannerAdWidget> {
             ad.dispose();
             bannerCompleter.completeError(error);
           },
-          onAdOpened: (Ad ad) => print('$BannerAd onAdOpened.'),
-          onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
+          //onAdOpened: (Ad ad) => print('$BannerAd onAdOpened.'),
+          //onAdClosed: (Ad ad) => print('$BannerAd onAdClosed.'),
         ),
       );
       _bannerAd!.load();
